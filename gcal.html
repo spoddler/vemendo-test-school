@@ -45,7 +45,7 @@
        */
       function handleAuthClick(event) {
         gapi.auth.authorize(
-          {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+          {client_id: CLIENT_ID, scope: SCOPES, immediate: false, login_hint: 'david.fahlander@vemendo.se'},
           handleAuthResult);
         return false;
       }
@@ -114,7 +114,7 @@
       <span>Authorize access to Google Calendar API</span>
       <!--Button for the user to click to initiate auth sequence -->
       <button id="authorize-button" onclick="handleAuthClick(event)">
-        Authorize 2
+        Authorize 3
       </button>
     </div>
     <pre id="output"></pre>
