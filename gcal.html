@@ -1,6 +1,8 @@
 <html>
   <head>
     <script type="text/javascript">
+      var HINTED_USER = "david.fahlander@gmail.com";
+      
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
       var CLIENT_ID = '395059295490-a7nc8ieqspiuieekohnd5qrj6erj0jk8.apps.googleusercontent.com';
@@ -16,7 +18,7 @@
             'client_id': CLIENT_ID,
             'scope': SCOPES.join(' '),
             'immediate': true,
-            'login_hint': 'david.fahlander@vemendo.se',
+            'login_hint': HINTED_USER,
           }, handleAuthResult);
       }
 
@@ -45,7 +47,7 @@
        */
       function handleAuthClick(event) {
         gapi.auth.authorize(
-          {client_id: CLIENT_ID, scope: SCOPES, immediate: false, login_hint: 'david.fahlander@vemendo.se'},
+          {client_id: CLIENT_ID, scope: SCOPES, immediate: false, login_hint: HINTED_USER},
           handleAuthResult);
         return false;
       }
@@ -114,7 +116,7 @@
       <span>Authorize access to Google Calendar API</span>
       <!--Button for the user to click to initiate auth sequence -->
       <button id="authorize-button" onclick="handleAuthClick(event)">
-        Authorize 3
+        Authorize 4
       </button>
     </div>
     <pre id="output"></pre>
