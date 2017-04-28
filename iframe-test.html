@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>iframe-test</title>
+<script>
+var val = document.cookie.split(';')
+    .map(c => c.split('=')
+      .map(part => part.trim()))
+    .filter(pair => pair[0] === 'ifr')
+    .map(pair => parseInt(pair[1]))
+    [0] || 0;
+
+alert (val);
+
+document.cookie = "ifr=" + (++val);
+
+if (window.parent) window.parent.postMessage({done: true, cookie: val}, "https://jsfiddle.net");
+
+</script>
+</head>
+</html>
